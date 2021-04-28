@@ -7,17 +7,19 @@ export default function TodoList({ list, deleteElement }) {
     <div className="todo-list">
       {list &&
         list.map((element, index) => (
-          <p className="note">
-            <input type="checkbox" />
-            <span>{element}</span>
+          <div className="note" key={element.id}>
+            <span>{element.note}</span>
             <BsTrash
               className="delete-icon"
               onClick={() => {
-                deleteElement(element, index);
+                deleteElement(index);
               }}
             />
-          </p>
+          </div>
         ))}
+      {list.length === 0 && (
+        <p className="notes-empty">No hay notas disponibles</p>
+      )}
     </div>
   );
 }

@@ -1,12 +1,32 @@
 .todo-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.todo-list .notes-empty {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
 }
 
 .todo-list .note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  background-color: yellow;
+  border: solid 1px #3f3f3f;
+  padding: 16px 16px;
+  width: 200px;
+  margin: 8px;
+  height: 300px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.todo-list .note span {
+  white-space: pre-line;
 }
 
 .todo-list .note input[type="checkbox"] {
@@ -15,4 +35,7 @@
 
 .todo-list .note .delete-icon {
   cursor: pointer;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
 }

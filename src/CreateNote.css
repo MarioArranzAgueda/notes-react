@@ -1,0 +1,14 @@
+.create-note {
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.create-note p {
+  margin: 0 auto;
+}
