@@ -1,7 +1,9 @@
 import "./styles.css";
-import Input from "./Input.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import TodoList from "./TodoList";
 import { useEffect, useState } from "react";
+import CreateNote from "./CreateNote";
 
 export default function App() {
   const [todoList, setTodoList] = useState(
@@ -11,8 +13,10 @@ export default function App() {
     const list = todoList.concat(note);
     setTodoList(list);
   };
-  const deleteElement = (note, index) => {
-    setTodoList(todoList.splice(index, 1));
+  const deleteElement = (index) => {
+    setTodoList(
+      todoList.filter((element, elementIndex) => index !== elementIndex)
+    );
   };
 
   useEffect(() => {
@@ -22,13 +26,13 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <h3>Todo List</h3>
+        <h2 className="header">Todo List</h2>
       </header>
       <section>
-        <Input addNote={addNote} />
+        <TodoList deleteElement={deleteElement} list={todoList} />
       </section>
       <section>
-        <TodoList deleteElement={deleteElement} list={todoList} />
+        <CreateNote addNote={addNote} />
       </section>
     </div>
   );
